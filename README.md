@@ -21,6 +21,14 @@ I also suggested to my colleagues to add challenges/technologies they found inte
 https://github.com/pauvretimo (deployment)
 
 https://github.com/alleph (challenge maker)
+
+## Important
+
+As I'm not an expert in Web development, please let me know if there are any unforeseen ways of solving the challenges :)
+
+The aim wasn't to make the challenges very realistic, but to touch on just about every kind of technology.
+
+
 ## Documentation
 
 All challenges are developed in NodeJS for the backend. 
