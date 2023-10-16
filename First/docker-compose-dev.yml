@@ -1,0 +1,23 @@
+version: '3'
+services:
+  php-apache:
+    build: php
+    restart: always
+    volumes:
+      - ./php/www:/var/www/html
+    ports:
+      - 8088:80
+    environment:
+      ADMIN_MAIL: admin@cyberlog.com
+      ADMIN_PASS: 5b58565f587370727668636578736663
+      USER_MAIL: modo@cyberlog.com
+      USER_PASS: 57535d59746f737569626677746564
+      FLAG: flag{grande_soif}
+  mysql:
+    build: sql
+    restart: always
+    environment:
+      MYSQL_DATABASE: tickets
+      MYSQL_USER: monkey
+      MYSQL_PASSWORD: monkey
+      MYSQL_RANDOM_ROOT_PASSWORD: root

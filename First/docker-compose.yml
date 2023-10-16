@@ -1,0 +1,41 @@
+version: '3'
+services:
+  php-apache:
+    build: php
+    restart: always
+    volumes:
+      - ./php/www:/var/www/html
+    environment:
+      ADMIN_MAIL: admin@cyberlog.com
+      ADMIN_PASS: 5b58565f587370727668636578736663
+      USER_MAIL: modo@cyberlog.com
+      USER_PASS: 57535d59746f737569626677746564
+      FLAG: flag{grande_soif}
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.php-apache.entrypoints=web,websecure"
+      - "traefik.http.routers.php-apache.rule=Host(`cdr.cyberlog.dev`)"
+      - "traefik.http.services.php-apache.loadbalancer.server.port=80"
+      - "traefik.http.routers.php-apache.tls=true"
+      - "traefik.http.routers.php-apache.tls.certresolver=lets-encrypt"
+  mysql:
+    build: sql
+    restart: always
+    environment:
+      MYSQL_DATABASE: tickets
+      MYSQL_USER: monkey
+      MYSQL_PASSWORD: monkey
+      MYSQL_RANDOM_ROOT_PASSWORD: root
+    networks:
+      - web
+    restart: unless-stopped
+
+networks:
+  web:
+    external: true
