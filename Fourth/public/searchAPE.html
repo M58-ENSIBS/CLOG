@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search APE</title>
+    <link rel="stylesheet" href="style-APE.css">
+</head>
+<body>
+    <h1>Search for an Ape</h1>
+    <form id="searchForm" method="post">
+        <label for="queryInput">Ape Name:</label>
+        <input type="text" id="queryInput" name="query" placeholder="Enter ape name" autocomplete="off" required>
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="fileContents">
+      <div id="fileText">
+        <!-- File contents will be displayed here -->
+      </div>
+    </div>
+    
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission behavior
+
+            const query = document.getElementById('queryInput').value;
+
+            // Send a POST request to the server to perform the search
+            fetch('/searchAPE', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `query=${query}`,
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('fileText').innerHTML = `<pre>${data}</pre>`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('fileText').innerHTML = 'Error fetching search results.';
+                });
+        });
+    </script>
+</body>
+</html>

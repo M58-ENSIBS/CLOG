@@ -1,0 +1,62 @@
+\documentclass[10pt]{article}
+\usepackage{array, xcolor, bibentry}
+\usepackage[margin=3cm]{geometry}
+\usepackage{verbatim} 
+\title{\bfseries\Huge My CV}
+\author{MONKEY Company}
+\date{}
+ 
+\definecolor{lightgray}{gray}{0.8}
+\newcolumntype{L}{>{\raggedleft}p{0.14\textwidth}}
+\newcolumntype{R}{p{0.8\textwidth}}
+\newcommand\VRule{\color{lightgray}\vrule width 0.5pt}
+ 
+\begin{filecontents}{publication.bib}
+@article{lamport1986latex,
+  title={LaTEX: User's Guide \& Reference Manual},
+  author={Lamport, L.},
+  year={1986},
+  publisher={Addison-Wesley}
+}
+@book{knuth2006art,
+  title={The art of computer programming: Generating all trees: history of combinatorial generation},
+  author={Knuth, D.E.},
+  volume={4},
+  year={2006},
+  publisher={addison-Wesley}
+}
+\end{filecontents}
+ 
+\begin{document}
+\maketitle
+\vspace{1em}
+\begin{minipage}[ht]{0.48\textwidth}
+Monkey Company.\\
+ENSIBS HQ \\
+18 rue du APE
+\end{minipage}
+\begin{minipage}[ht]{0.48\textwidth}
+SARL\\
++44 45 56 78 89
+\end{minipage}
+\vspace{20pt}
+ 
+\section*{Lastname}
+\input{/tmp/lastname.tex}
+
+\section*{Firstname}
+\input{/tmp/firstname.tex}
+
+\section*{Age}
+\input{/tmp/age.tex}
+
+\section*{Situation}
+\input{/tmp/situation.tex}
+
+\section*{Skills}
+\input{/tmp/skills.tex}
+
+\section*{Motivation}
+\input{/tmp/motivation.tex}
+ 
+\end{document}

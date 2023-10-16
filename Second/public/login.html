@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            justify-content: center;
+        }
+        
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .input-label {
+            font-size: 18px;
+            margin-bottom: 5px;
+            margin-right: 10px; /* Add margin to the right side of the label */
+            display: inline-block; /* Allow labels to display inline with input fields */
+            width: 30%; /* Set a fixed width for labels to create consistent spacing */
+        }
+
+        .input-field {
+            width: 70%; /* Set a width for input fields to take up the remaining space */
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        .login-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <div>
+                <label for="username" class="input-label">Username:</label>
+                <input class="input-field" type="text" id="username" name="username" autocomplete="off">
+            </div>
+            <div>
+                <label for="password" class="input-label">Password:</label>
+                <input class="input-field" type="password" id="password" name="password">
+            </div>
+            <button class="login-button" type="submit">Login</button>
+        </form>
+        <p id="login-message"></p>
+        <p id="flag-message"></p>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginMessage = document.getElementById('login-message');
+            const flagMessage = document.getElementById('flag-message');
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    loginMessage.textContent = data.message;
+                    console.log(data);
+                    flagMessage.textContent = data.flag;
+                } else {
+                    loginMessage.textContent = 'Invalid credentials';
+                }
+            })
+            .catch(error => {
+                loginMessage.textContent = 'Error occurred during login';
+            });
+        });
+    </script>
+</body>
+</html>

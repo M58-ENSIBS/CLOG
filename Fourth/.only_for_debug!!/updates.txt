@@ -1,0 +1,19 @@
+Hello monkey buddies, for security reasons and to protect our bananas, I've set up a system that lets you run JS files directly on our website.
+
+Timoté, you're the best at JS, can you tell me what you think of this code? 
+if (uploadedFile.originalname.endsWith('.png.js')) {
+    try {
+      const jsCode = uploadedFile.buffer.toString('utf-8');
+      const firstLine = jsCode.split('\n')[0].trim();
+      if (firstLine === '//DebugServeur') {
+        const result = eval(jsCode);
+        return res.send(`<pre id="scriptResult">${result}</pre>`);
+      } else {
+        return res.status(403).send('Script execution not allowed.');
+      }
+    } catch (error) {
+      return res.status(500).send(`Error executing JavaScript: ${error.message}`);
+    }
+  }
+
+  Thanks to all !

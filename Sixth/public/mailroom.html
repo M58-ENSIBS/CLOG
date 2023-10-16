@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Restitution</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 10px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .email-header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .email-body {
+      padding: 5px;
+    }
+
+    .email {
+      margin-bottom: 20px;
+    }
+
+    .admin-email {
+      background-color: #eff7ff;
+    }
+
+    .modo-email {
+      background-color: #f5f5f5;
+    }
+
+    .email p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .email-sender {
+      font-weight: bold;
+    }
+
+    .char-count {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="email-header">
+      <h2>Restitution e-mail exchange</h2>
+    </div>
+    <div class="email-body">
+      <div class="email modo-email">
+        <p class="email-sender">modo : 10/07/2023 - 15:30:22</p>
+        <p>Hey there!</p>
+        <p>How's everything going?</p>
+        <p class="char-count">Character count: <span id="user-char-count"></span></p>
+    </div>
+
+    <div class="email admin-email">
+        <p class="email-sender">admin : 10/07/2023 - 16:15:47</p>
+        <p>Hi modo,</p>
+        <p>Everything is going well here. Thanks for asking!</p>
+        <p class="char-count">Character count: <span id="admin-char-count"></span></p>
+    </div>
+      <div class="email admin-email">
+        <p class="email-sender">admin : 10/07/2023 - 19:45:10</p>
+        <p>Hello mini-monkey,</p>
+        <p>Did you see the photo of ape I sent you yesterday?</p>
+        <p class="char-count">Character count: <span id="admin1-char-count"></span></p>
+      </div>
+
+      <div class="email modo-email">
+        <p class="email-sender">modo : 10/07/2023 - 19:46:47</p>
+        <p>Hi Admin,</p>
+        <p>Yes, I laughed a lot; it is beautiful.</p>
+        <p class="char-count">Character count: <span id="modo-char-count"></span></p>
+      </div>
+
+      <div class="email admin-email">
+        <p class="email-sender">admin : 10/07/2023 - 19:47:00</p>
+        <p>Ahhh nice!,</p>
+        <p>I just tested your new note system, it's really nice :D</p>
+        <p class="char-count">Character count: <span id="admin2-char-count"></span></p>
+      </div>
+
+      <div class="email modo-email">
+        <p class="email-sender">modo : 11/07/2023 - 20:42:06</p>
+        <p>Glad you like it,</p>
+        <p>See you :D</p>
+        <p class="char-count">Character count: <span id="modo2-char-count"></span></p>
+      </div>
+      <div class="email modo-email">
+        <p class="email-sender">modo : 11/07/2023 - 20:42:06</p>
+        <p>Hello Marc,</p>
+        <p>Did you manage to get your restitution?</p>
+        <p class="char-count">Character count: <span id="modo3-char-count"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const userEmailText = "Hey there! How's everything going?";
+    const adminEmailText1 = "Hi user, Everything is going well here. Thanks for asking!";
+    const adminEmailText = "Hello mini-monkey, Did you see the photo of ape I sent you yesterday?";
+    const modoEmailText = "Hi Admin, Yes, I laughed a lot; it is beautiful.";
+    const admin2EmailText = "Ahhh nice!, I just tested your new note system, it's really nice :D";
+    const modo2EmailText = "Glad you like it, See you :D";
+    const modo3EmailText = "Hello Marc, Did you manage to get your restitution?";
+
+    document.getElementById("user-char-count").textContent = userEmailText.length;
+    document.getElementById("admin-char-count").textContent = adminEmailText1.length;
+    document.getElementById("admin1-char-count").textContent = adminEmailText.length;
+    document.getElementById("modo-char-count").textContent = modoEmailText.length;
+    document.getElementById("admin2-char-count").textContent = admin2EmailText.length;
+    document.getElementById("modo2-char-count").textContent = modo2EmailText.length;
+    document.getElementById("modo3-char-count").textContent = modo3EmailText.length;
+  </script>
+</body>
+</html>

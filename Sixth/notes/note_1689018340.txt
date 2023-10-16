@@ -1,0 +1,11 @@
+Hello Mini-Monkey,
+
+Can you please take a look at this JS code about my JWT implementation on /administrator endpoint :
+
+const adminToken = "mY_p3rS0n4l_t0k3N_f0r_mY_0Wn_JwT"
+const adminTokenEncoded = Buffer.from(adminToken).toString('bese64');
+
+Can't wait to test your new implementation of secure notes in our infrastructure !!
+
+
+Bye, 

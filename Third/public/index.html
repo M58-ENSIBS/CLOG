@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'un CV en ligne !</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#141e30, #243b55);
+        }
+
+        .login-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #fff;
+        }
+
+        .user-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .user-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        .user-box label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            pointer-events: none;
+            transition: 0.5s;
+        }
+
+        .user-box input:focus ~ label,
+        .user-box input:valid ~ label {
+            top: -20px;
+            left: 0;
+            color: #03e9f4;
+            font-size: 12px;
+        }
+
+        input[type="submit"] {
+            color: #fff !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #60a3bc;
+            padding: 20px;
+            width: 100%;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.4s ease 0s;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+            background: #03e9f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Création d'un CV en ligne !</h2>
+        <form action="/latex" method="get">
+            <div class="user-box">
+                <input type="text" id="lastname" name="lastname">
+                <label>Prénom</label>
+            </div>
+            <div class="user-box">
+                <input type="text" id="firstname" name="firstname">
+                <label>Nom</label>
+            </div>
+            <div class="user-box">
+                <input type="text" id="age" name="age">
+                <label>Age</label>
+            </div>
+            <div class="user-box">
+                <input type="text" id="situation" name="situation">
+                <label>Situation</label>
+            </div>
+            <div class="user-box">
+                <input type="text" id="skills" name="skills">
+                <label>Skills</label>
+            </div>
+            <div class="user-box">
+                <input type="textarea" id="motivation" name="motivation">
+                <label>Motivation</label>
+            </div>
+            <input type="submit" value="Générer mon CV"/>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        
+        .calculator {
+            width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            text-align: left;
+            
+        }
+
+        .calculate-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .calculate-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <label for="calculation" class="input-label">Enter an operation:</label>
+        <input class="input-field" id="calculation" placeholder="e.g., 2 + 2">
+        <button class="calculate-button" onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            // Only a fast eye can see this ;)
+            setTimeout(() => {
+                document.getElementById('calculation').value = '';
+                document.getElementById('result').textContent = '';
+            }, 1000);
+
+            const input = document.getElementById('calculation').value; // Hmmm, what if the user enters something like "2 + 2; alert('Hello!');"
+            const resultElement = document.getElementById('result');
+
+            // Make an AJAX request to the server for calculation
+            fetch('/calculate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ calculation: input }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    resultElement.textContent = `Error: ${data.error}`;
+                } else {
+                    resultElement.textContent = `Result: ${data.result}`;
+                }
+            })
+            .catch(error => {
+                resultElement.textContent = 'Error occurred during calculation';
+            });
+        }
+    </script>
+</body>
+</html>

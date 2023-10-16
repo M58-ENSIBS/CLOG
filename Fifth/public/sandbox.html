@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <!-- TBD : 
+    - Create a cookie SuperSecretCookie:UltraSecretCookieForUltraSecuredWebSite=) as fast as possible 
+    - Give some bananas to the monkey -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .admin-panel {
+      background-color: #fff;
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button[type="submit"] {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    #resume {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-panel">
+    <h1>Admin Panel</h1>
+    <form id="user-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" required><br><br>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required><br><br>
+
+      <label for="job">Job:</label>
+      <input type="text" id="job" name="job" required><br><br>
+
+      <button type="submit">Create User</button>
+    </form>
+
+    <div id="resume" style="display: none;">
+      <h2>User Resume</h2>
+      <p><strong>Name:</strong> <span id="resume-name"></span></p>
+      <p><strong>Surname:</strong> <span id="resume-surname"></span></p>
+      <p><strong>Age:</strong> <span id="resume-age"></span></p>
+      <p><strong>Job:</strong> <span id="resume-job"></span></p>
+    </div>
+  </div>
+
+<script>
+    const userForm = document.getElementById('user-form');
+    const resumeDiv = document.getElementById('resume');
+  
+    userForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const name = document.getElementById('name').value;
+      const surname = document.getElementById('surname').value;
+      const age = document.getElementById('age').value;
+      const job = document.getElementById('job').value;
+  
+      try {
+        const response = await fetch('/ToBeDeleted!', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `name=${encodeURIComponent(name)}&surname=${encodeURIComponent(surname)}&age=${encodeURIComponent(age)}&job=${encodeURIComponent(job)}`,
+        });
+  
+        if (response.ok) {
+          const resumeHTML = await response.text();
+  
+          // Insert the HTML resume into the resumeDiv
+          resumeDiv.innerHTML = resumeHTML;
+  
+          // Show the resume section
+          resumeDiv.style.display = 'block';
+  
+          // Clear the form
+          userForm.reset();
+        } else {
+          console.error('Server response was not OK.');
+        }
+      } catch (error) {
+        console.error('An error occurred:', error);
+      }
+    });
+  </script>
+  </body>
+  </html>

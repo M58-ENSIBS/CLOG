@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <style>
+    /* Add CSS styles for the admin panel */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.admin-panel {
+  background-color: #fff;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+}
+
+.date-time {
+  text-align: center;
+}
+
+
+#js-code {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#run-js {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+#run-js:hover {
+  background-color: #0056b3;
+}
+
+#output {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="admin-panel">
+    <h1>Admin Panel</h1>
+    <div class="date-time">
+      <p id="date"></p>
+      <p id="time"></p>
+      <p id="day"></p>
+    </div>
+<input id="url-input" placeholder="Enter URL here"></textarea>
+<button id="capture-screenshot">Capture Screenshot</button>
+<div id="screenshot">
+  <img id="screenshot-image" src="" alt="">
+</div>
+
+  </div>
+  <script>
+const dateElement = document.getElementById('date');
+const timeElement = document.getElementById('time');
+const dayElement = document.getElementById('day');
+const jsCodeElement = document.getElementById('js-code');
+const runJsButton = document.getElementById('run-js');
+const outputElement = document.getElementById('output');
+
+function updateDateTime() {
+  const now = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+  dateElement.textContent = now.toLocaleDateString(undefined, options);
+}
+updateDateTime();
+const urlInputElement = document.getElementById('url-input');
+const captureScreenshotButton = document.getElementById('capture-screenshot');
+const screenshotImageElement = document.getElementById('screenshot-image');
+captureScreenshotButton.addEventListener('click', () => {
+  const urlToCapture = urlInputElement.value;
+
+  fetch('/capture-screenshot', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `url=${encodeURIComponent(urlToCapture)}`,
+  })
+    .then((response) => response.blob())
+    .then((blob) => {
+      const objectURL = URL.createObjectURL(blob);
+      screenshotImageElement.src = objectURL;
+      screenshotImageElement.style.display = 'block';
+    })
+    .catch((error) => {
+      console.error('An error occurred:', error);
+    });
+});
+
+
+  </script>
+</body>
+</html>
