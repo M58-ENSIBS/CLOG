@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        .admin-panel {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .user-connections {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .user-connections h2 {
+            margin-top: 0;
+        }
+
+        .temperature {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .temperature h2 {
+            margin-top: 0;
+        }
+
+        .fake-graphic {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .additional-data {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .additional-data h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+    </header>
+
+    <div class="admin-panel">
+        <div class="user-connections">
+            <h2>Current User Connections</h2>
+            <p>Users online: 42</p>
+            <p>Users registered: 1,234</p>
+            <p>Recent sign-ups: 5</p>
+        </div>
+
+        <div class="temperature">
+            <h2>Server Room Temperature</h2>
+            <p>Temperature: 25°C</p>
+            <p>Humidity: 50%</p>
+        </div>
+
+        <div class="fake-graphic">
+            <h2>Graphical Data</h2>
+            <!-- Add your graphical data or images here -->
+            <img src="https://raw.githubusercontent.com/jesperlekland/react-native-svg-charts/master/screenshots/line-chart.png" alt="Graph">
+        </div>
+
+        <div class="additional-data">
+            <h2>Additional Information</h2>
+            <p>Server uptime: 30 days</p>
+            <p>Disk space used: 70%</p>
+            <p>Network traffic: 1.5 TB</p>
+            <!-- <p>Test the connexion of the website :</p>
+            <form action="/EvalME" method="get">
+                <input type="submit" value="Run Debug Commands">
+            </form> -->
+        </div>
+    </div>
+</body>
+</html>
