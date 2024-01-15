@@ -217,7 +217,7 @@ Aïe, le serveur semble regarder si le paramètre placé après `?sexe=` a une l
 
 Le backend étant en `nodejs`, nous devons contourner la condition `length == 1,` et nous pourrions ainsi exploiter une LFI puisque l'entrée n'est pas filtrée.
 
-On va donc exploiter de la pollution de paramètre en HTTP afin de bypass ce check.
+On va donc utiliser la manière dont Express gère les requêtes des paramètres qui sont des tableaux.
 
 La solution consiste à convertir l'entrée directement en liste, comme : 
 
