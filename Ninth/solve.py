@@ -3,7 +3,6 @@ import requests
 import re
 import time
 
-
 url = 'https://challrob1.cyberlog.dev'
 
 print("\033[H\033[J")
