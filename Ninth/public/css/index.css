@@ -1,0 +1,95 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50; /* Couleur de fond foncée */
+    color: #ecf0f1; /* Couleur du texte clair */
+}
+
+header {
+    color: #fff;
+    padding: 0px;
+    text-align: center;
+}
+
+footer {
+    background-color: #2980b9; /* Couleur du pied de page */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #34495e; /* Couleur de fond des sections */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #3498db; /* Couleur des titres */
+}
+
+p {
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styles spécifiques pour les graphiques et les avis */
+.chart {
+    margin: 20px 0;
+}
+
+.chart img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    background-color: #2c3e50; /* Couleur de fond des avis */
+    border: 1px solid #34495e; /* Bordure des avis */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.review p {
+    color: #ecf0f1;
+}
+
+nav {
+    background-color: #2c3e50; /* Couleur de fond de la barre de navigation */
+    padding: 10px;
+}
+
+nav a {
+    color: #ecf0f1; /* Couleur du texte des liens de navigation */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #3498db; /* Couleur du texte des liens au survol */
+}

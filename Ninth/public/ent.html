@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>ENT - Login</title>
+    <link rel="stylesheet" href="css/ENT.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login - ENT - ENSIBS</h1>
+        <form action="/loginENT" method="POST">
+            <div class="form-control">
+                <input type="text" required name="pseudo" autocomplete="off">
+                <label>Pseudo</label>
+            </div>
+            <div class="form-control">
+                <input type="password" required name="password" autocomplete="off">
+                <label>Password</label>
+            </div>
+            <button class="btn">Login</button>
+        </form>
+    </div>
+    <script>
+        const labels = document.querySelectorAll('.form-control label')
+
+labels.forEach(label => {
+    label.innerHTML = label.innerText
+        .split('')
+        .map((letter, index) => `<span style="transition-delay:${index * 40}ms">${letter}</span>`)
+        .join('')
+})
+    </script>
+</body>
+</html>
