@@ -58,18 +58,22 @@ En forçant la seed, nous pouvons déterminer quels caractères aléatoires ont 
 ```python
 import random
 
-output = "XXXX"
-task_len = len(output) // 5
+output = "D:sc s _rsei e_s-dul is dm  sununT pTe-iisTrs/ODnsopdsdrip/e eosseprn_dem: rccO/mi-nrn dli_cslcsid c_ccsdssoOr  er sOTincps_dnds_ Our_  meO s/mVeo/es_ e orsissT_or cnodcdsclurddeDmV _irem:rmOcrrredoOs :Or_T_eVeVo  r_- Os-esmmr/sp_e_ eo/oDc:/r_ r"
+
+print("Decrypting task...")
+print("=> " + output[:200] + " [...]")
+
+flag_len = len(output) // 5
 for seed in range(1337):
-	random.seed(seed)
-	choices = random.choices(list(range(task_len)), k=len(output))
-	task = [''] * len(output)
-	for i, v in enumerate(choices):
-	    task[v] = output[i]
-task = ''.join(task)
-if task.startswith('TODO'): # On sait que la tâche commence par "TODO"
-    print(flag)
-    break
+    random.seed(seed)
+    choices = random.choices(list(range(flag_len)), k=len(output))
+    flag = [''] * len(output)
+    for i, v in enumerate(choices):
+        flag[v] = output[i]
+    flag = ''.join(flag)
+    if flag.startswith('TODO'):
+        print("\033[92m + Decrypted task : " + flag + "\033[0m")
+        break
 
 => TODO : Virer les creds sous /__creds__/nom-prenom
 ```
