@@ -10,7 +10,7 @@ Ce challenge est destiné aux lycéens qualifiés pour la finale du NBCTF.
 - **Type** : OSINT, WEB
 - **Difficulté** : Difficile
 - **Nombre de points** : 500 
-- **Enoncé** : "Vous êtes engagé par un superstar afin de retrouver le paparazzi **anglais** qui ne cesse de l'importuner. Il semblerait que son dernier scoop concerne **Ben Affleck, Ana de Armas et leur chien**"
+- **Enoncé** : "Vous êtes engagé par une superstar afin de retrouver le paparazzi **anglais** qui ne cesse de l'importuner. Il semblerait que son dernier scoop concerne **Ben Affleck, Ana de Armas et leur chien**"
 
 ---
 
@@ -197,7 +197,7 @@ En cliquant sur `Go back in safe place` on est redirigé vers :
 
 ![image](https://hackmd.io/_uploads/SyL4xCg46.png)
 
-Cependant, il semble impossible de devenir les autres tâches. 
+Cependant, il semble impossible de deviner les autres tâches. 
 
 En analysant le `hash` :
 
@@ -264,7 +264,7 @@ On trouve instantanément que `356a192b7913b04c54574d18c28d46e6395428ab <-> 1`
 
 --- 
 
-Parfait, on peut maintenant essayé de trouver la note n°2 : 
+Parfait, on peut maintenant essayer de trouver la note n°2 : 
 
 ```
 echo -n "2" | sha1sum | awk '{print $1"g"}'
