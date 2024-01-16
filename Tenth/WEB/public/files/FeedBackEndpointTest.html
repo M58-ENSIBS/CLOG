@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact-me</title>
+</head>
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.cf {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+</style>
+<body>
+    <h1>Contact-me</h1>
+    <form method="POST" name="contactForm" class="cf">
+        <div class="half left cf">
+            <input type="text" name="name" id="name" placeholder="Name" pattern="[A-Za-z0-9]" title="Letters and numbers only.">
+            <input type="email" name="email" id="email" placeholder="Email address"> 
+            <input type="text" id="subject" placeholder="Subject" pattern="[A-Za-z0-9]" title="Letters and numbers only.">
+        </div>
+        <div class="half right cf">
+            <textarea name="message" type="text" id="message" placeholder="Message" pattern="[A-Za-z0-9]" title="Letters and numbers only."></textarea>
+        </div>
+        <button type="button" onclick=getXml()>Send</button>
+    </form>
+</body>
+<script>
+    function getXml() {
+        var elements = document.forms.contactForm.elements;
+        var xmlTemplate = '<?xml version = "1.0"?><contact>';
+        xmlTemplate = xmlTemplate + '<name>' + document.getElementById("name").value + '</name>' + '<subject>' + document.getElementById("subject").value + '</subject>' + '<mail>' + document.getElementById("email").value + '</mail>' + '<message>' + document.getElementById("message").value + '</message></contact>';
+        var http = new XMLHttpRequest();
+        var url = '/process';
+        http.open('POST', url, true);
+        http.setRequestHeader('Content-Type', 'text/xml');
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                alert(http.responseText);
+            }
+        }
+        http.send(xmlTemplate);
+    }
+</script>
+</html>
