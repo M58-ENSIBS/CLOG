@@ -108,7 +108,7 @@ else:
 
 print("\n")
 print('=====================================')
-print('Step 4 : Exploit HTTP Polluting on /bernard_projects/monkeygen?sexe=X')
+print('Step 4 : Exploit on /bernard_projects/monkeygen?sexe=X')
 print('=====================================')
 
 endpoint = '/bernard_projects/monkeygen?sexe'
