@@ -1,10 +1,10 @@
-# CAFEEEE (With 4Es)
+# CAFEEEEE (With 4Es)
 
 ## Overview
 
 Welcome to the Caféine Calculator, a fun project born out of a coffee aficionado's quest to keep caffeine intake in check. This web application allows users to calculate and monitor (not yet) their caffeine consumption from various sources, ranging from coffee drinks to energy drinks and snacks.
 
-The website is available at [https://m58.fr/COFEEEE](https://m58.fr/COFEEEE)
+The website is available at [https://m58.fr/COFEEEE](https://m58.fr/CAFEEEE)
 
 ## Why this project?
 
