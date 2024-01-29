@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/style/calculate.css">
+    <title>Caféine Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Caféine Calculator</h1>
+        <div class="calculator">
+            <label for="category">Choose a category:</label>
+            <select id="category" onchange="updateDrinkOptions()">
+                <option value="">Select a category</option>
+                <option value="bottledCoffee">Bottled coffee drink</option>
+                <option value="caffeinatedWater">Caffeinated Water</option>
+                <option value="softDrink">Coke, Pepsi, or other soft drink</option>
+                <option value="energyDrink">Monster or other energy drink</option>
+                <option value="starbucksOrDunkin">Starbucks or Dunkin</option>
+                <option value="caffeinatedSnack">Caffeinated snack</option>
+                <option value="chocolateIceCreamYogurt">Chocolate, ice cream, or yogurt</option>
+                <option value="groundCoffeeOrEspresso">Ground coffee or espresso</option>
+                <option value="overTheCounterDrugs">Over-the-counter drugs or supplements</option>
+                <option value="tea">Tea</option>
+            </select>
+
+            <label for="drinkType">Choose a drink:</label>
+            <select id="drinkType"></select>
+
+            <label for="drinkSize">Select size (ml):</label>
+            <input type="number" id="drinkSize" placeholder="Enter size" />
+
+            <label for="quantity">Select quantity:</label>
+            <input type="number" id="quantity" placeholder="Enter quantity" />
+
+            <button onclick="calculateCaffeine()">Calculate</button>
+
+            <div id="placeholderColumn"></div>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script src="public/js/calculate.js"></script>
+</body>
+</html>
