@@ -4,6 +4,8 @@
 
 Welcome to the Caféine Calculator, a fun project born out of a coffee aficionado's quest to keep caffeine intake in check. This web application allows users to calculate and monitor (not yet) their caffeine consumption from various sources, ranging from coffee drinks to energy drinks and snacks.
 
+The website is available at [https://m58.fr/COFEEEE](https://m58.fr/COFEEEE)
+
 ## Why this project?
 
 Me and my friends are coffee lovers. We enjoy a good cup of coffee, but we also want to keep our caffeine intake in check. We often find ourselves wondering how much caffeine we've consumed in a day, and how much more we can have before we reach our daily limit. This tool is meant to help us answer those questions.
@@ -29,6 +31,10 @@ Me and my friends are coffee lovers. We enjoy a good cup of coffee, but we also 
 
     Total Caffeine Calculation:
         The tool calculates and displays the total estimated caffeine dose based on the user's selections.
+
+## Limits of the project
+
+As I'm really bad in CSS and Native JS, the project is not really beautiful and the code is not really clean. I'm sorry for that, I'm working on it.
 
 
 ## Customize and Contribute
