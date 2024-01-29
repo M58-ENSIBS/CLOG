@@ -1,16 +1,16 @@
 # CAFEEEE (With 4Es)
 
-## Overview
+## Overview
 
 Welcome to the Caféine Calculator, a fun project born out of a coffee aficionado's quest to keep caffeine intake in check. This web application allows users to calculate and monitor (not yet) their caffeine consumption from various sources, ranging from coffee drinks to energy drinks and snacks.
 
 The website is available at [https://m58.fr/COFEEEE](https://m58.fr/COFEEEE)
 
-## Why this project?
+## Why this project?
 
 Me and my friends are coffee lovers. We enjoy a good cup of coffee, but we also want to keep our caffeine intake in check. We often find ourselves wondering how much caffeine we've consumed in a day, and how much more we can have before we reach our daily limit. This tool is meant to help us answer those questions.
 
-## Features
+## Features
 
     Step-by-Step Selection:
         The user begins by choosing a category of drinks/snacks from a list.
@@ -37,12 +37,12 @@ Me and my friends are coffee lovers. We enjoy a good cup of coffee, but we also 
 As I'm really bad in CSS and Native JS, the project is not really beautiful and the code is not really clean. I'm sorry for that, I'm working on it.
 
 
-## Customize and Contribute
+## Customize and Contribute
 
 Feel free to customize and expand upon this project. It's open for contributions and enhancements. Whether you want to add new categories, fun facts, or additional features, your creativity is the limit!
 
 
-## Acknowledgments
+## Acknowledgments
 
 This project was created for the ENSIBS 5A promotion, inspired by the passion for coffee and a desire to explore web development. Special thanks to the ENSIBS community for the ongoing support.
 
